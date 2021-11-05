@@ -3,10 +3,15 @@
  */
 
 /**
- * @author Lenovo
+ * @author Jens Hafemann
  *
  */
 public class Hangman {
+
+	static String ausgabe(char[] wort, char eingabe) {
+		
+		return wort.toString();
+	}
 
 	/**
 	 * @param args
