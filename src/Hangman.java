@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * 
  */
@@ -12,8 +14,15 @@ public class Hangman {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		
+		Scanner in = new Scanner(System.in);
+		
+		System.out.println("HANGMAN");
+		System.out.println("*******");
+		
+		System.out.println("Sie haben 15 Versuche!");
+		System.out.println("Geben Sie einen Buchstaben ein:");
+	
 	}
 
 }
