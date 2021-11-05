@@ -8,9 +8,22 @@
  */
 public class Hangman {
 
-	static String ausgabe(char[] wort, char eingabe) {
-		
-		return wort.toString();
+	/**
+	 * 
+	 * @param wort
+	 *                <p>
+	 *                :die zuletzt angezeigte Ausgabe<br>
+	 *                nicht erratenen buchstaben werden mit "_" Dargestellt
+	 *                </p>
+	 * @param eingabe :Der Eingegebene Buchstabe
+	 * @return String :neues wort zur Ausgabe
+	 */
+	static String ausgabe(String wort, char eingabe) {
+		return wort;
+	}
+
+	static boolean istEnthalten(String wort, char eingabe) {
+		return wort.indexOf(eingabe) != -1;
 	}
 
 	/**
