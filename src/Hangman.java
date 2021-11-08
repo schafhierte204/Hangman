@@ -77,9 +77,9 @@ public class Hangman {
 
 			else {
 				System.out.println(wahl + " ist falsch! Sie haben noch " + i + " Versuche.");
-				System.out.println("");
 				anzeigeWort = ausgabe(anzeigeWort, wort, wahl);
 				System.out.println(anzeigeWort);
+				System.out.println("");
 				System.out.println("**************************************");
 				System.out.println("");
 			}
