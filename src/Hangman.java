@@ -5,11 +5,8 @@ import java.util.Scanner;
  */
 
 /**
-<<<<<<< HEAD
  * @author Jens Hafemann
-=======
- * @author vollmani
->>>>>>> 3a87b155beaed7698509471c9b980f067613f2f1
+ * @author Nico Vollmar
  *
  */
 public class Hangman {
@@ -29,10 +26,10 @@ public class Hangman {
 		int i = ratewort.indexOf(eingabe);
 		if (i == -1)
 			return wort;// buchstabe nicht enthalten
-		StringBuilder sbWort= new StringBuilder(wort);
-		while (i !=-1) {
+		StringBuilder sbWort = new StringBuilder(wort);
+		while (i != -1) {
 			sbWort.setCharAt(i, eingabe);
-			i= ratewort.indexOf(eingabe, i+1);
+			i = ratewort.indexOf(eingabe, i + 1);
 		}
 
 		return sbWort.toString();
@@ -55,28 +52,49 @@ public class Hangman {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		
-		String wort = "Haus";
+
+		String wort = "haus";
 		Scanner in = new Scanner(System.in);
-		int versuche =15;
-		
-		
+		int versuche = 15;
+		String anzeigeWort = fuellen(wort, '-');
+
 		System.out.println("HANGMAN");
 		System.out.println("*******");
-		
+
 		System.out.println("Sie haben 15 Versuche.");
-		System.out.println("Geben Sie einen Buchstaben ein:");
-		char wahl = in.next().charAt(0);
-		for(int i= 1;i<=versuche;i++)
-		{
-		System.out.println("ist falsch! Sie haben noch 14 Versuche");
-		System.out.println("");
-		System.out.println("**************************************");
-		System.out.println("");
+
+		for (int i = versuche; i >= 0; i--) {
+			System.out.println("Geben Sie einen Buchstaben ein:");
+			char wahl = in.next().charAt(0);
+			if (istEnthalten(wort, wahl)) {
+				System.out.println(wahl + " ist richtig! Sie haben noch " + i + " Versuche.");
+				anzeigeWort = ausgabe(anzeigeWort, wort, wahl);
+				System.out.println(anzeigeWort);
+				System.out.println();
+				System.out.println("**************************************");
+				System.out.println();
+			}
+
+			else {
+				System.out.println(wahl + " ist falsch! Sie haben noch " + i + " Versuche.");
+				System.out.println("");
+				anzeigeWort = ausgabe(anzeigeWort, wort, wahl);
+				System.out.println(anzeigeWort);
+				System.out.println("**************************************");
+				System.out.println("");
+			}
+			if (anzeigeWort.equals(wort)) {
+				break;
+			}
 		}
-		
+		if (anzeigeWort.equals(wort)) {
+			System.out.println("Herzlichen Glückwunsch! Sie haben gewonnen!");
+		} else {
+			System.out.println("Wie schade! Sie haben verloren.");
+		}
+
 		in.close();
-	
+
 	}
 
 }
