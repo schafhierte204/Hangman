@@ -53,7 +53,15 @@ public class Hangman {
 	 */
 	public static void main(String[] args) {
 
-		String wort = "haus";
+		String[] woerter = { "berge", "himmel", "hoehle", "wasserfall", "hotel", "wald", "badezimmer", "untergrund",
+				"partyzeit", "deutschland", "urlaub", "liebe", "abenteuer", "primetime", "vergangenheit",
+				"zufallsgenerator", "fernsehen", "videospiele", "bahnhof", "supermakrt", "ferien", "zimmer",
+				"koerperaufbau", "mathematik", "klausur", "geisterhaus", "urlaubsinsel", "hauptquartier",
+				"waldeinsamkeit", "rumsitzen", "vergnuegen", "holzbier", "ackern", "rumspielen", "exzellent",
+				"kommando", "geschichte", "verlieren", "gewinnen", "papierflieger", "autobahnen", "kreuzfeuer",
+				"panzerschlacht", "durcheinander", "resizwecke", "hangmann", "vegetarierer", "optimissmus", "europa",
+				"skyline", "laenderkunde", "matchball", "spieleshow", "paradies", "wasserrutsche", "luxus", "abfeiern", "firmenboss", "chefkoch"};
+		String wort = woerter[ (int) (Math.random() * woerter.length)];
 		Scanner in = new Scanner(System.in);
 		int versuche = 15;
 		String anzeigeWort = fuellen(wort, '-');
