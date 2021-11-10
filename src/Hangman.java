@@ -62,7 +62,7 @@ public class Hangman {
 			  "      _______\r\n"
 			+ "     |/      |\r\n"
 			+ "     |      (_)\r\n"
-			+ "     |        | \r\n"
+			+ "     |       | \r\n"
 			+ "     |       |\r\n"
 			+ "     |          \r\n"
 			+ "     |\r\n"
