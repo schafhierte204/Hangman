@@ -10,6 +10,79 @@ import java.util.Scanner;
  *
  */
 public class Hangman {
+	
+	static String[] zeichnen= {"        \r\n"
+			+ "              \r\n"
+			+ "               \r\n"
+			+ "                \r\n"
+			+ "              \r\n"
+			+ "                \r\n"
+			+ "      \r\n"
+			+ "         ",
+			  "            "
+			+ "              \r\n"
+			+ "               \r\n"
+			+ "                \r\n"
+			+ "              \r\n"
+			+ "                \r\n"
+			+ "      \r\n"
+			+ "    _____",
+			  "        \r\n"
+			+ "     |        \r\n"
+			+ "     |         \r\n"
+			+ "     |          \r\n"
+			+ "     |        \r\n"
+			+ "     |          \r\n"
+			+ "     |\r\n"
+			+ "    _|___",
+	  		  "      _______\r\n"
+			+ "     |/       \r\n"
+			+ "     |         \r\n"
+			+ "     |          \r\n"
+			+ "     |        \r\n"
+			+ "     |          \r\n"
+			+ "     |\r\n"
+			+ "    _|___",
+			  "      _______\r\n"
+			+ "     |/      |\r\n"
+			+ "     |         \r\n"
+			+ "     |          \r\n"
+			+ "     |        \r\n"
+			+ "     |          \r\n"
+			+ "     |\r\n"
+			+ "    _|___",
+			  "      _______\r\n"
+			+ "     |/      |\r\n"
+			+ "     |      (_)\r\n"
+			+ "     |          \r\n"
+			+ "     |        \r\n"
+			+ "     |          \r\n"
+			+ "     |\r\n"
+			+ "    _|___",
+			  "      _______\r\n"
+			+ "     |/      |\r\n"
+			+ "     |      (_)\r\n"
+			+ "     |        | \r\n"
+			+ "     |       |\r\n"
+			+ "     |          \r\n"
+			+ "     |\r\n"
+			+ "    _|___",
+			  "      _______\r\n"
+			+ "     |/      |\r\n"
+			+ "     |      (_)\r\n"
+			+ "     |      \\|/\r\n"
+			+ "     |       |\r\n"
+			+ "     |          \r\n"
+			+ "     |\r\n"
+			+ "    _|___",
+			  "      _______\r\n"
+			+ "     |/      |\r\n"
+			+ "     |      (_)\r\n"
+			+ "     |      \\|/\r\n"
+			+ "     |       |\r\n"
+			+ "     |      / \\\r\n"
+			+ "     |\r\n"
+			};
 
 	/**
 	 * 
@@ -55,32 +128,34 @@ public class Hangman {
 
 		String wort = "haus";
 		Scanner in = new Scanner(System.in);
-		int versuche = 15;
 		String anzeigeWort = fuellen(wort, '-');
 
 		System.out.println("HANGMAN");
 		System.out.println("*******");
 
-		System.out.println("Sie haben 15 Versuche.");
 
-		for (int i = versuche; i >= 0; i--) {
+		int i=0;
+		while (i<zeichnen.length-1) {
 			System.out.println("Geben Sie einen Buchstaben ein:");
 			char wahl = in.next().charAt(0);
 			if (istEnthalten(wort, wahl)) {
-				System.out.println(wahl + " ist richtig! Sie haben noch " + i + " Versuche.");
+				System.out.println(wahl + " ist richtig!");
 				anzeigeWort = ausgabe(anzeigeWort, wort, wahl);
 				System.out.println(anzeigeWort);
 				System.out.println();
 				System.out.println("**************************************");
+				System.out.println(zeichnen[i]);
 				System.out.println();
 			}
 
 			else {
-				System.out.println(wahl + " ist falsch! Sie haben noch " + i + " Versuche.");
+				System.out.println(wahl + " ist falsch!");
 				anzeigeWort = ausgabe(anzeigeWort, wort, wahl);
 				System.out.println(anzeigeWort);
 				System.out.println("");
 				System.out.println("**************************************");
+				i++;
+				System.out.println(zeichnen[i]);
 				System.out.println("");
 			}
 			if (anzeigeWort.equals(wort)) {
