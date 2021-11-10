@@ -143,6 +143,7 @@ public class Hangman {
 
 
 		int i=0;
+		System.out.println(anzeigeWort);
 		while (i<zeichnen.length-1) {
 			System.out.println("Geben Sie einen Buchstaben ein:");
 			char wahl = in.next().charAt(0);
